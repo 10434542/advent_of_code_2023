@@ -1,11 +1,11 @@
 fun main() {
+    // split on the newline characters..
     val bla = "dayFive.txt".asResource().split("\n").mapNotNull { line -> line.trimIndent().takeIf { it.isNotEmpty() } }
     val seedList = bla[0].split(":")[1].trim().split(" ").map{ it.toLong()}
     val result = seedList.map { seed ->
         test(bla, seed)
     }
     result.forEach { println(it) }
-
 }
 
 fun test(input: List<String>, whatever: Long): Long = with(input.iterator()) {
