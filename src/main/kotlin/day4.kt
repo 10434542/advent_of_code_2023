@@ -19,21 +19,16 @@ fun main() {
             val amountOfMatches = firstSet.intersect(secondSet).size.toDouble()
             val tempResult = 2.0.pow(amountOfMatches - 1)
             resultPartOne += tempResult.toInt()
-            print("${amountOfMatches.toInt()} ")
             for (currentCard in 1..amountOfCards[index]) {
-                print("$currentCard found extra cards for ")
-                for(i in 1..amountOfMatches.toInt()) {
-                    print("${index + i + 1}")
-                    // increase values of amountOfCards here, take into account the size of amountOfCards
+                for (i in 1..amountOfMatches.toInt()) {
+                    if (index + i < amountOfCards.size) {
+                        amountOfCards[index + i] += 1
+                    }
                 }
-
-
             }
-            println("")
         }
-    print(amountOfCards)
     println("result for day four part one is $resultPartOne")
-
+    println("result for day four part two is ${amountOfCards.sum()}")
 
 
 }
